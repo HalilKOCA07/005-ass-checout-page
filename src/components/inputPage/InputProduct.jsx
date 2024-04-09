@@ -2,8 +2,17 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { Container, Button } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
+import { useState } from "react";
 
-const InputProduct = () => {
+const InputProduct = ({setProductName}) => {
+
+      //? **** INPUT NAME *****
+
+    const handleNameInput = (e) => {
+        setProductName(e.target.value);
+    }
+
+
   return (
     <Container className="mt-5 bg-warning-subtle p-5 rounded-4 shadow-lg">
       <Form.Label For="basic-name">Product Name</Form.Label>
@@ -14,6 +23,7 @@ const InputProduct = () => {
           aria-label="Username"
           aria-describedby="basic-addon1"
           id="basic-name"
+          onChange={handleNameInput}
         />
       </InputGroup>
 

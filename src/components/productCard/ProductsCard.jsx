@@ -1,9 +1,11 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Card';
 
 
 export const ProductsCard = () => {
+
+    const handleAddProduct = () => {
+        
+    }
     return(
         <Container className='w-75 m-auto mb-5 border-0 mt-5'>
         <div className='d-flex justify-content-evenly gap-2 shadow-lg border-0'>

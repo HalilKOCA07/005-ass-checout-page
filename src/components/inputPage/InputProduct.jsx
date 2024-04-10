@@ -4,7 +4,7 @@ import { Container, Button } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
 
-const InputProduct = ({setProductName}) => {
+const InputProduct = ({setProductName, hideShow}) => {
 
       //? **** INPUT NAME *****
 
@@ -14,7 +14,8 @@ const InputProduct = ({setProductName}) => {
 
 
   return (
-    <Container className="mt-5 bg-warning-subtle p-5 rounded-4 shadow-lg">
+    <div className={hideShow ? "d-none" : "d-block"}>
+          <Container className="mt-5 bg-warning-subtle p-5 rounded-4 shadow-lg">
       <Form.Label For="basic-name">Product Name</Form.Label>
       <InputGroup className="mb-3 shadow-lg">
         <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
@@ -53,6 +54,8 @@ const InputProduct = ({setProductName}) => {
         </Button>
       </div>
     </Container>
+    </div>
+
   );
 };
 

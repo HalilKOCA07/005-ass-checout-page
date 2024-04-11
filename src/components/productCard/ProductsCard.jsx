@@ -1,18 +1,23 @@
 import Container from "react-bootstrap/Card";
 import axios from "axios"
 
-export const ProductsCard = ({ getProducts }) => {
-  console.log(getProducts);
+export const ProductsCard = ({ mockapiProduct, getProducts }) => {
+  console.log(mockapiProduct);
 
   const handleDelete = async (id) => {
-    try{
-        const URL = `"https://65f6a31041d90c1c5e0b13c0.mockapi.io/productData/${id}"`;
-        const res = await axios.delete(URL,)
-        console.log("ürün başarıyla silindi");
-      }catch (eror) {
-        console.log("ürün silerken bir hata oluştu",eror)
-      }
-  }
+    try {
+      const URL = `https://65f6a31041d90c1c5e0b13c0.mockapi.io/productData/${id}`;
+      await axios.delete(URL);
+      console.log("Ürün başarıyla silindi.");
+      // Burada silinen ürünün güncellenmiş listesini alabilirsiniz.
+    } catch (error) {
+      console.error("Ürün silinirken bir hata oluştu:", error);
+    }
+
+    mockapiProduct()
+  };
+
+
 
   return (
     <Container className="w-75 m-auto mb-5 border-0 mt-5">
@@ -42,7 +47,7 @@ export const ProductsCard = ({ getProducts }) => {
                   <button className="btn btn-success fw-bolder"> + </button>
                 </div>
                 <div className="btnRemove d-flex justify-content-center">
-                  <button className="btn btn-danger w-75" onClick={() => handleDelete(id)} >Remove</button>
+                  <button className="btn btn-danger w-75" onClick={() => handleDelete(id)}>Remove</button>
                 </div>
                 <p>
                   Product Total: $<span>{price * 0.8 * quantity}</span>

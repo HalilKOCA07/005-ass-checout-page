@@ -29,16 +29,14 @@ export const Home = () => {
     useEffect(()=> {               //** sonsuz döngüyü kırmak için useEffect (DidMount) kullandım */
         mockapiProduct()
     }, [])
-    console.log(getProducts)
-    const[productName, setProductName] = useState ("") //? ınput product name 
-    console.log(productName)
+  
     return(
         <>
         <Header />
         <div className="d-flex justify-content-center mt-3"><button className={hideShow ? "btn btn-primary" : "btn btn-danger"} onClick={handleHideShow}>{!hideShow ? "Hide Input Area" : "Show Input Area"}</button></div>
         <div className="container d-flex">
-        <InputProduct hideShow={hideShow} setProductName={setProductName} mockapiProduct={mockapiProduct}/>
-        <ProductsCard getProducts={getProducts}/>
+        <InputProduct hideShow={hideShow} mockapiProduct={mockapiProduct} />
+        <ProductsCard getProducts={getProducts} mockapiProduct={mockapiProduct}/>
         </div>
 
         </>

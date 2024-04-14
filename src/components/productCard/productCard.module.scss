@@ -1,0 +1,19 @@
+
+
+.productImage{
+    width: 300px;
+    height: 300px;
+    img{
+        width: 250px;
+        height: 250px;
+        border-radius: 15px;
+        margin: 1rem;
+        transition: all 1s;
+        &:hover{
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            
+        }
+    }
+}

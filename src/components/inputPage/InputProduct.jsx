@@ -35,8 +35,9 @@ const InputProduct = ({hideShow, mockapiProduct}) => {
     }
 
   return (
-    <div className={hideShow ? "d-none" : "d-block w-50"}>
-    <Form className="mt-5 bg-warning-subtle p-5 rounded-4 shadow-lg" onSubmit={handleSubmit}>
+    <div className={hideShow ? "d-none" : "container d-block"}>
+      <div className="row">
+      <Form className="col-sm-10 col-md-5 m-auto mt-5 bg-warning-subtle p-5 rounded-4 shadow-lg" onSubmit={handleSubmit}>
       <Form.Label htmlFor="basic-name">Product Name</Form.Label>
       <InputGroup className="mb-3 shadow-lg">
         <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
@@ -78,6 +79,7 @@ const InputProduct = ({hideShow, mockapiProduct}) => {
         </Button>
       </div>
     </Form>
+      </div>
     </div>
 
   );

@@ -1,5 +1,6 @@
 import Container from "react-bootstrap/Card";
 import axios from "axios"
+import style from "./productCard.module.scss"
 
 export const ProductsCard = ({ mockapiProduct, getProducts}) => {
   console.log(getProducts);
@@ -61,19 +62,19 @@ export const ProductsCard = ({ mockapiProduct, getProducts}) => {
    //*  ***** INCREASE VE DECREASE İŞLEMLERİ END*/
 //todo ******************************************************************************************** */
   return (
-    <Container className="w-50 m-auto mb-5 border-0 mt-5">
-
-      <div className="d-flex flex-column justify-content-evenly gap-4 shadow-lg border-0 ">
+    <Container className="mb-5 mt-5">
+     
+      <div className="row align-content-center gap-3 flex-column">
         {getProducts?.length ? (
           getProducts.map(({ name, price, quantity, image, id }) => (
             
-            <div className="col-sm-12 productsContainer d-flex gap-3 shadow-lg" key={id}>
-              <div className="productImage bg-danger-subtle text-center">
-                <img className="w-100 h-100 shadow-lg" src={image} alt="" />
+            <div className="col-sm-10 col-md-5 col-lg-5 productsContainer d-flex gap-3 shadow-lg" key={id}>
+              <div className={style.productImage}>
+                <img className="col-sm-10 col-md-5 col-lg-5 m-2" src={image} alt="" />
               </div>
 
               <div className="productInfo w-50 d-flex flex-column gap-3">
-                <h5>{name}</h5>
+                <h5 className="fw-bold text-secondary">{name}</h5>
                 <h5>
                   ${" "}
                   <span className="cutprice fs-4 text-danger">
@@ -92,7 +93,7 @@ export const ProductsCard = ({ mockapiProduct, getProducts}) => {
                   <button className="btn btn-danger w-75" onClick={() => handleDelete(id)}>Remove</button>
                 </div>
                 <div>
-                  Product Total: $<span>{(price * 0.8 * quantity).toFixed(2)}</span>
+                  <h5 className=" d-inline-block text-primary">Product Total: </h5> $<span>{(price * 0.8 * quantity).toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -103,10 +104,11 @@ export const ProductsCard = ({ mockapiProduct, getProducts}) => {
             <h4 className="text-center text-danger fw-bold">Toplamda $1000,00 üstü bütün alımlarda kargo ücretsizdir</h4>
           </div>
         )}
+      </div> 
 
-      </div>
 
-          <div className="allTotalPrice mt-5">
+      <div className="row allTotalPrice justify-content-center mt-5">
+        <div className="col-sm-12 col-md-5 totalPaying">
         <div className="subTotal d-flex justify-content-between me-5 ms-5 border-bottom border-1 border-black">
           <h6>Subtotal</h6>
           <p>$ {subtotal.toFixed(2)}</p>
@@ -124,6 +126,8 @@ export const ProductsCard = ({ mockapiProduct, getProducts}) => {
           <p>$ {(subtotal + tax + shipping).toFixed(2)}</p>
         </div>
       </div> 
+        </div>
+
 
     </Container>
   );

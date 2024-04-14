@@ -34,10 +34,13 @@ export const Home = () => {
         <>
         <Header />
         <div className="d-flex justify-content-center mt-3"><button className={hideShow ? "btn btn-primary" : "btn btn-danger"} onClick={handleHideShow}>{!hideShow ? "Hide Input Area" : "Show Input Area"}</button></div>
-        <div className="container d-flex">
-        <InputProduct hideShow={hideShow} mockapiProduct={mockapiProduct} />
-        <ProductsCard getProducts={getProducts} mockapiProduct={mockapiProduct}/>
+        <div className="container">
+            <div className="row m-auto">
+                <InputProduct className="col-sm-10 col-md-5 col-lg-5" hideShow={hideShow} mockapiProduct={mockapiProduct} />
+                <ProductsCard className="col-sm-10 col-md-5 col-lg-5"  getProducts={getProducts} mockapiProduct={mockapiProduct}/>
+            </div>
         </div>
+
 
         </>
 
